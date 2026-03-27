@@ -1,15 +1,21 @@
 # ski-wekan-mongodb
 
-A Node.js/Express server for a Wekan-style kanban board with MongoDB.
+Docker configuration for spinning up a MongoDB 6 database for use with a Wekan kanban server.
 
-## Stack
-- Runtime: Node.js 20
-- Framework: Express
-- Database: MongoDB (to be configured via MONGODB_URI env var)
+## Files
+- `Dockerfile` — Builds a MongoDB 6 image, creates the `wekan` user and database
+- `init-mongo.js` — Initialisation script run on first container start
+- `docker-compose.yml` — Orchestrates the container with a persistent named volume
 
-## Running
-- Workflow: "Start application" → `node server.js` on port 5000
+## Usage (outside Replit, on a Docker host)
+```bash
+docker-compose up -d
+```
 
-## Notes
-- Cloned from https://github.com/rayhindman-ski/ski-wekan-server
-- Minimal skeleton — ready for further development
+Connection string for Wekan:
+```
+mongodb://wekan:wekan@localhost:27017/wekan
+```
+
+## Replit workflow
+The "Start application" workflow runs a small Node.js page on port 5000 that displays usage instructions.
