@@ -1,2 +1,2 @@
-# ski-wekan-server
-ski-wekan-server
+# ski-wekan-mongodb
+ski-wekan-mongodb
